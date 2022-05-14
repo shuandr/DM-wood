@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta name="description" content="фабрика ексклюзивних дверей для вимогливих клієнтів">
+    <meta property="og:image" content="https://dmwood.com.ua/">
+    <meta property="og:url" content="https://dmwood.com.ua/" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="catalogue" class="grid-container">
+        <div class="grid-x grid-padding-x white align-middle">
+            <div class="cell">
+               <br> <h4 class=" uppercase text-center">{[{doorsData.slogan}]}</h4><br>
+            </div>
+            <div class="cell medium-4 large-3 xlarge-2 text-center">
+                <img src="assets/img/doors-logo-w.svg" class="door-logo" alt=""><br>
+            </div>
+            <div class="cell auto ">
+                <p>{[{doorsData.intro}]}</p>
+            </div>
+        </div>
+    </div><br>
+    <div class="grid-x  grid-padding-y small-up-1 medium-up-2 large-up-3 xlarge-up-4" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">
+        <div class="cell model-card" ng-repeat="model in doorsData.catalogue" data-equalizer-watch>
+            <a href="#/door" ng-click="selectModel($index)">
+                <div class="grid-x  ">
+                    <div class="cell text-center">
+                        <img style="margin: 1rem 0 0.6rem" src="assets/img/doors/catalogue/{[{model.name}]}/1.webp" alt="">
+                    </div>
+                    <div class="cell">
+                        <h4 class="white uppercase text-center">{[{model.name}]}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div><br>
+    <div class="grid-x align-center">
+        <div class="cell text-center">
+            <a href="#/main#ourWorks" class="button back-btn "><i class="fas fa-arrow-left "></i> повернутись</a><br>
+        </div>
+    </div>
+    
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-sanitize.min.js"></script>
+    <script src="assets/js_plugins/myAngular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js_plugins/angular-slick.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAfuN7UgfDB2RfqBeNIZ1S_rpZ6HU-GKYU"></script>
+    <script>
+    var myCenterLviv = new google.maps.LatLng(49.89215777377054, 24.058172935771097);
+
+    var dmPin = 'assets/img/map-pin.png';
+
+    function initialize() {
+        var mapPropLviv = {
+            zoomControl: true,
+            scrollwheel: false,
+            center: myCenterLviv,
+            zoom: 16,
+            disableDefaultUI: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapLviv = new google.maps.Map(document.getElementById("googleMapLviv"), mapPropLviv);
+
+
+        var myMarker = new google.maps.Marker({
+            position: myCenterLviv,
+            icon: dmPin,
+            map: mapLviv,
+            title: 'Топольна, 4'
+        });
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</body>
+
+</html>

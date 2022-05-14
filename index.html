@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Wood | виробник ексклюзивних меблів, дверей та сходів з дерева | Львів</title>
+    <meta name="description" content="фабрика ексклюзивних дверей для вимогливих клієнтів">
+    <meta property="og:image" content="https://dmwood.com.ua/main-og-img.webp">
+    <meta property="og:url" content="https://dmwood.com.ua/index.html" />
+    <meta property="og:title" content="DM Wood" />
+    <meta property="og:description" content="Виробник ексклюзивних меблів, дверей та сходів" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="assets/css/app.css">
+    <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#282f33">
+    <meta name="msapplication-TileColor" content="#333333">
+    <meta name="theme-color" content="#282f33">
+</head>
+
+<body>
+    <div id="preloader" class="grid-x gray-bg align-center-middle">
+        <div class="cell text-center" id="pre-logo">
+            <img src="assets/img/DM-wood-logo.svg" style="width: 180px" alt="">
+        </div>
+    </div>
+    <div ng-app="DMwood" ng-controller="DMwoodCtrl">
+        <div class="hero">
+            <div class="grid-x social-icons">
+                <div class="cell shrink  ">
+                    <a href="https://www.facebook.com/{[{data.fb}]}" target="_blank">
+                        <i class="fa fa-facebook-square fa-2x"></i></a>
+                    <a href="https://www.instagram.com/{[{data.insta}]}" target="_blank">
+                        <i class="fa fa-instagram fa-2x"></i></a>
+                </div>
+                <div class="cell auto main-tel ">
+                    <a class="white text-right" href="tel://{[{data.tel1}]}">
+                        <i class="fa fa-phone-square fa-2x" style="transform: translateY(0.4rem); "></i>
+                        {[{data.tel1View}]}</a>
+                </div>
+            </div>
+            <slick settings="mainSlickConfig">
+                <div ng-repeat="slide in data.mainSlides" class="slide" style="height: 84vh; background-image: url(assets/img/slides/{[{slide}]}.webp)">
+                </div>
+            </slick>
+            <div class="header uppercase text-center dark-overlay">
+                <div class="grid-x align-center-middle" style="height: 100%">
+                    <div class="cell ">
+                        <a href="#/main">
+                            <img class="main-logo " src="assets/img/DM-wood-logo_W.svg" alt="">
+                            <h1 class=" white  show-for-portrait hide-for-large"> {[{data.slogan}]}</h1>
+                            <h1 class="slogan white uppercase show-for-large"> {[{data.slogan}]}</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- about us -->
+        <div class="white-bg" style="position: relative;">
+            <div class="woodrings-1">
+                <img src="assets/img/wood-rings.webp" alt="">
+            </div>
+            <div class="grid-container grid-x align-center">
+                <div class="cell medium-11 large-10 dark-gray">
+                    <br>
+                    <h2 class=" uppercase text-center">про нас</h2>
+                    <p class="text-center">{[{data.history}]}</p><br><br>
+                </div>
+            </div>
+        </div>
+        <!-- ng-view -->
+        <div class="dark-gray-bg">
+            <div ng-view class="main"></div>
+            <!-- footer -->
+            <footer class="white" style="position: relative;"><br>
+                <h2 class="uppercase text-center">контакти</h2>
+                <div class="woodrings-2">
+                    <img src="assets/img/wood-rings.webp" alt="">
+                </div>
+                <div class="grid-x ">
+                    <div class="cell medium-6 large-8 " style="padding-left: 3vw">
+                        <div id="googleMapLviv" style="width:100%; height:360px;"></div>
+                    </div>
+                    <div class="cell medium-6 large-4">
+                        <img style="width: 120px" src="assets/img/logo-w.svg" alt=""><br><br>
+                        <p>{[{data.address}]}</p>
+                        <a class="white s-bold" href="tel://{[{data.tel1}]}">{[{data.tel1View}]}</a><br>
+                        <a class="white s-bold" href="tel://{[{data.tel2}]}">{[{data.tel2View}]}</a><br>
+                        <a class="white s-bold" href="tel://{[{data.tel3}]}">{[{data.tel3View}]}</a><br>
+                        <p>{[{data.email}]}</p>
+                        <a href="https://www.facebook.com/{[{data.fb}]}" target="_blank">
+                            <i class="white fa fa-facebook-square fa-2x"></i></a>
+                        <a style="margin-left: 0.6rem" href="https://www.instagram.com/{[{data.insta}]}" target="_blank">
+                            <i class="white fa fa-instagram fa-2x"></i></a>
+                    </div>
+                </div><br><br>
+            </footer>
+        </div>
+    </div>
+    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.2/angular-sanitize.min.js"></script>
+    <script src="assets/js_plugins/myAngular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="assets/js_plugins/angular-slick.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAfuN7UgfDB2RfqBeNIZ1S_rpZ6HU-GKYU"></script>
+    <script>
+    var myCenterLviv = new google.maps.LatLng(49.89215777377054, 24.058172935771097);
+
+    var dmPin = 'assets/img/map-pin.png';
+
+    function initialize() {
+        var mapPropLviv = {
+            zoomControl: true,
+            scrollwheel: false,
+            center: myCenterLviv,
+            zoom: 16,
+            disableDefaultUI: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        var mapLviv = new google.maps.Map(document.getElementById("googleMapLviv"), mapPropLviv);
+
+
+        var myMarker = new google.maps.Marker({
+            position: myCenterLviv,
+            icon: dmPin,
+            map: mapLviv,
+            title: 'Топольна, 4'
+        });
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</body>
+
+</html>
