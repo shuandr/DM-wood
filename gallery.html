@@ -1,99 +1,39 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <meta name="description" content="фабрика ексклюзивних дверей для вимогливих клієнтів">
-    <meta property="og:image" content="https://dmwood.com.ua/">
-    <meta property="og:url" content="https://dmwood.com.ua/" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <div class="works-cat">
-        <div class="show-for-medium grid-x medium-up-4 large-up-6 xlarge-up-8 align-center">
-            <div class=" cell " ng-repeat="cat in data.works">
-                <a ng-click="selectCat($index)">
-                    <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
-                </a>
-            </div>
-        </div>
-        <div class="hide-for-medium grid-x grid-padding-x align-center">
-            <div class="cell small-10 s-bold ">
-                <select class="s-bold" ng-model="selectedCat" ng-options="cat.name for cat in data.works">
-                </select>
-            </div>
-        </div>
-    </div><br>
-    <div id="gallery" class="grid-container">
-        <div class="grid-x grid-padding-x  text-center">
-            <div class="cell">
-                <br>
-                <h2 class="white uppercase">{[{selectedCat.name}]}</h2>
-                <a ng-show="selectedCat.id == 'doors'" href="#/dmdoors#catalogue" class="button door-cat-btn">
-                    <span class="uppercase s-bold">каталог дверей</span>
-                </a><br>
-                <slick settings="gallerySlickConfig">
-                    <div ng-repeat="image in selectedCat.img">
-                        <div class="grid-x align-center-middle">
-                            <div class="cell large-shrink">
-                                <a href="" ng-click="selectImg(image)">
-                                    <img src="assets/img/{[{selectedCat.id}]}/{[{image}]}.webp" alt="">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </slick><br>
-                <a href="#/main#ourWorks" class="button back-btn uppercase"><i class="fas fa-arrow-left "></i> повернутись</a>
-            </div>
-        </div>
-    </div>
-    <script src="https://code.angularjs.org/1.8.2/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-animate.min.js"></script>
-    <script src="https://code.angularjs.org/1.8.2/angular-sanitize.min.js"></script>
-    <script src="assets/js_plugins/myAngular.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="assets/js_plugins/angular-slick.js"></script>
-    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAfuN7UgfDB2RfqBeNIZ1S_rpZ6HU-GKYU"></script>
-    <script>
-    var myCenterLviv = new google.maps.LatLng(49.89215777377054, 24.058172935771097);
-
-    var dmPin = 'assets/img/map-pin.png';
-
-    function initialize() {
-        var mapPropLviv = {
-            zoomControl: true,
-            scrollwheel: false,
-            center: myCenterLviv,
-            zoom: 16,
-            disableDefaultUI: true,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var mapLviv = new google.maps.Map(document.getElementById("googleMapLviv"), mapPropLviv);
-
-
-        var myMarker = new google.maps.Marker({
-            position: myCenterLviv,
-            icon: dmPin,
-            map: mapLviv,
-            title: 'Топольна, 4'
-        });
-
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-</body>
-
-</html>
+<!-- ng-view -->
+ <div class="works-cat">
+     <div class="show-for-medium grid-x medium-up-4 large-up-6 xlarge-up-8 align-center">
+         <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
+             <a >
+                 <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
+             </a>
+         </div>
+     </div>
+     <div class="hide-for-medium grid-x grid-padding-x align-center">
+         <div class="cell small-10 s-bold ">
+             <select class="s-bold" ng-model="selectedCat" ng-options="cat.name for cat in data.works">
+             </select>
+         </div>
+     </div>
+ </div><br>
+ <div id="gallery" class="grid-container">
+     <div class="grid-x grid-padding-x  text-center">
+         <div class="cell">
+             <br>
+             <h2 class="white uppercase">{[{selectedCat.name}]}</h2>
+             <a ng-show="selectedCat.id == 'doors'" href="#/dmdoors#catalogue" class="button door-cat-btn">
+                 <span class="uppercase s-bold">каталог дверей</span>
+             </a><br>
+             <slick settings="gallerySlickConfig">
+                 <div ng-repeat="image in selectedCat.img">
+                     <div class="grid-x align-center-middle">
+                         <div class="cell large-shrink">
+                             <a href="" ng-click="selectImg(image)">
+                                 <img src="assets/img/{[{selectedCat.id}]}/{[{image}]}.webp" alt="">
+                             </a>
+                         </div>
+                     </div>
+                 </div>
+             </slick><br>
+             <a href="#/main#ourWorks" class="hollow button back-btn uppercase"><i class="fas fa-arrow-left "></i> повернутись</a>
+         </div>
+     </div>
+ </div>

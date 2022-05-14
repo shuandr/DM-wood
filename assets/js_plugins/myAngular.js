@@ -68,7 +68,9 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
 
     $scope.selectCat = function(cat) {
         $scope.selectedCat = $scope.data.works[cat];
+        $scope.menuCatSel = cat;
         $location.search({ category: $scope.selectedCat.name });
+
 
     };
     $scope.selectImg = function(image) {

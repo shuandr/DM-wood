@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="assets/css/app.css">
     <script src="https://kit.fontawesome.com/0caeff61d9.js" crossorigin="anonymous"></script>
+    <!-- icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,12 +42,11 @@
                         <i class="fa fa-instagram fa-2x"></i></a>
                 </div>
                 <div class="cell auto main-tel ">
-                    <a class="white text-right" href="tel://{[{data.tel1}]}">
+                    <a class="white text-right" href="tel://{[{data.tel1}]}" >
                         <i class="fa fa-phone-square fa-2x" style="transform: translateY(0.4rem); "></i>
                         {[{data.tel1View}]}</a>
                 </div>
-            </div>
-            <slick settings="mainSlickConfig">
+            </div>        <slick settings="mainSlickConfig">
                 <div ng-repeat="slide in data.mainSlides" class="slide" style="height: 84vh; background-image: url(assets/img/slides/{[{slide}]}.webp)">
                 </div>
             </slick>
@@ -79,7 +79,7 @@
         <div class="dark-gray-bg">
             <div ng-view class="main"></div>
             <!-- footer -->
-            <footer class="white" style="position: relative;"><br>
+            <footer class="white" style="position: relative; bottom: 0;"><br>
                 <h2 class="uppercase text-center">контакти</h2>
                 <div class="woodrings-2">
                     <img src="assets/img/wood-rings.webp" alt="">
@@ -123,7 +123,7 @@
             zoomControl: true,
             scrollwheel: false,
             center: myCenterLviv,
-            zoom: 16,
+            zoom: 12,
             disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
