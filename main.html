@@ -4,24 +4,21 @@
      <h2 class="white uppercase text-center">наші роботи</h2>
      <div data-sticky-container>
          <div class="sticky" data-sticky data-sticky-on="small" data-options="marginTop:0;" data-top-anchor="ourWorks" data-btm-anchor="ourWorks:bottom">
-     <div class="works-cat">
-         <div class="show-for-medium grid-x medium-up-4 large-up-6 xlarge-up-8 align-center">
-             <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
-                 <a >
-                     <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
-                 </a>
+             <div class="works-cat show-for-medium grid-x medium-up-4 large-up-6 xlarge-up-8 align-center">
+                 <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
+                     <a>
+                         <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
+                     </a>
+                 </div>
+             </div>
+             <div class="hide-for-medium grid-x grid-padding-x align-center">
+                 <div class="cell small-10 s-bold ">
+                     <select class="dm-select " ng-model="selectedCat" ng-options="cat.name for cat in data.works">
+                     </select>
+                 </div>
              </div>
          </div>
-         <div class="hide-for-medium grid-x grid-padding-x align-center">
-             <div class="cell small-10 s-bold ">
-                 <select class="s-bold" ng-model="selectedCat" ng-options="cat.name for cat in data.works">
-                 </select>
-             </div>
-         </div>
-     </div>            
-         </div>
-     </div><br>
-     <div class="grid-x grid-padding-x align-center">
+     </div><br>    <div class="grid-x grid-padding-x align-center">
          <div class=" large-10 cell text-center">
              <p class="white ">{[{selectedCat.descr}]}</p>
              <a ng-show="selectedCat.id == 'doors'" href="#/dmdoors#catalogue" class="button door-cat-btn">
@@ -29,15 +26,13 @@
              </a>
          </div>
      </div>
-     <br>
-     <!-- <h4 class="white uppercase text-center s-bold">{[{selectedCat.name}]}</h4> -->
      <div class=" grid-x  grid-padding-x grid-padding-y small-up-2  large-up-3">
          <div class="cell fade" style="padding: 1.8vw ;" ng-repeat="image in selectedCat.img">
              <a href="#/gallery#gallery" ng-click="selectImg(image)">
                  <img class="big-shadow" src="assets/img/{[{selectedCat.id}]}/thumbs/{[{image}]}.webp" alt="">
              </a>
          </div>
-     </div><br>
+     </div><br><br>
  </div>
  <!-- gallery -->
  <div class="white-bg">
