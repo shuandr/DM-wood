@@ -133,7 +133,14 @@
             zoomControl: true,
             scrollwheel: false,
             center: myCenterLviv,
-            zoom: 12,
+            zoom: 11,
+            styles: [{
+                "featureType": "all",
+                "elementType": "all",
+                "stylers": [
+                    { "saturation": -84 }
+                ]
+            }],
             disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
@@ -145,11 +152,11 @@
             position: myCenterLviv,
             icon: dmPin,
             map: mapLviv,
-            title: 'Топольна, 4'
+            title: 'Малехів, вул. Жовківська, 19'
         });
 
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
+    window.addEventListener('load', initialize);
     </script>
 </body>
 
