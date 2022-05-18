@@ -1,5 +1,5 @@
 <!-- ng-view -->
- <div id="catalogue" class="grid-container">
+ <div class="grid-container">
      <div class="grid-x grid-padding-x white align-middle">
          <div class="cell">
             <br> <h4 class=" uppercase text-center">{[{doorsData.slogan}]}</h4><br>
@@ -14,7 +14,7 @@
  </div><br>
  <div class="grid-x  grid-padding-y small-up-2 medium-up-3 large-up-4 xlarge-up-5" data-equalizer data-equalize-on="medium" data-equalize-by-row="true">
      <div class="cell model-card" ng-repeat="model in doorsData.catalogue" data-equalizer-watch>
-         <a href="#/door#view" ng-click="selectModel($index)">
+         <a href="#/door" ng-click="selectModel($index)">
              <div class="grid-x  ">
                  <div class="cell text-center">
                      <img style="margin: 1rem 0 0.6rem" src="assets/img/doors/catalogue/{[{model.name}]}/1.webp" alt="">
@@ -28,7 +28,7 @@
  </div><br>
  <div class="grid-x align-center">
      <div class="cell text-center">
-         <a href="#/main#ourWorks" class="hollow button back-btn "><i class="fas fa-arrow-left "></i> повернутись</a><br>
+         <a href="#/main#ourWorks" class="hollow button back-btn "><i class="fas fa-arrow-left "></i> повернутись</a><br><br>
      </div>
  </div>
  

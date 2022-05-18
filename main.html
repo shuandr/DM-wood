@@ -1,4 +1,46 @@
 <!-- ng-view -->
+  <div class="hero">
+         <div class="grid-x social-icons">
+             <div class="cell shrink  ">
+                 <a href="https://www.facebook.com/{[{data.fb}]}" target="_blank">
+                     <i class="fa fa-facebook-square fa-2x"></i></a>
+                 <a href="https://www.instagram.com/{[{data.insta}]}" target="_blank">
+                     <i class="fa fa-instagram fa-2x"></i></a>
+             </div>
+             <div class="cell auto main-tel ">
+                 <a class="white text-right" href="tel://{[{data.tel1}]}" >
+                     <i class="fa fa-phone-square fa-2x" style="transform: translateY(0.4rem); "></i>
+                     {[{data.tel1View}]}</a>
+             </div>
+         </div>        <slick settings="mainSlickConfig">
+             <div ng-repeat="slide in data.mainSlides" class="slide" style="height: 84vh; background-image: url(assets/img/slides/{[{slide}]}.webp)">
+             </div>
+         </slick>
+         <div class="header uppercase text-center dark-overlay">
+             <div class="grid-x align-center-middle" style="height: 100%">
+                 <div class="cell ">
+                     <a href="#/main#ourWorks">
+                         <img class="main-logo " src="assets/img/DM-wood-logo_We.svg" alt="">
+                         <h1 class=" white  show-for-portrait hide-for-large"> {[{data.slogan}]}</h1>
+                         <h1 class="slogan white uppercase show-for-large"> {[{data.slogan}]}</h1>
+                     </a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- about us -->
+     <div class="white-bg" style="position: relative;">
+         <div class="woodrings-1">
+             <img src="assets/img/wood-rings.webp" alt="">
+         </div>
+         <div class="grid-container grid-x align-center">
+             <div class="cell medium-11 large-10 dark-gray">
+                 <br>
+                 <h2 class=" uppercase text-center">про нас</h2>
+                 <p class="text-center">{[{data.history}]}</p><br><br>
+             </div>
+         </div>
+     </div>
  <div id="ourWorks">
      <br>
      <h2 class="white uppercase text-center">наші роботи</h2>
@@ -28,7 +70,7 @@
      </div>
      <div class=" grid-x  grid-padding-x grid-padding-y small-up-2  large-up-3">
          <div class="cell fade" style="padding: 1.8vw ;" ng-repeat="image in selectedCat.img">
-             <a href="#/gallery#gallery" ng-click="selectImg(image)">
+             <a href="#/gallery" ng-click="selectImg($index)">
                  <img class="big-shadow" src="assets/img/{[{selectedCat.id}]}/thumbs/{[{image}]}.webp" alt="">
              </a>
          </div>

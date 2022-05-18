@@ -30,19 +30,22 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
 
     var urlQuery = $location.search();
 
-    $scope.getCategory = function() {
-        for (var i = $scope.data.works.length - 1; i >= 0; i--) {
-            if (urlQuery.category == $scope.data.works[i].name) {
-                return i;
-            }
-        }
-    };
-
     $http.get("assets/data/main.json").then(function(response) {
         $scope.data = response.data;
-        $scope.selectedCat = urlQuery.category ? $scope.data.works[$scope.getCategory()] :
-            $scope.data.works[0];
         $scope.selectedImg = urlQuery.object ? Number(urlQuery.object) : 1;
+        if (urlQuery.category) {
+            for (var i = $scope.data.works.length - 1; i >= 0; i--) {
+                if (urlQuery.category == $scope.data.works[i].name) {
+                    $scope.selectedCat = $scope.data.works[i];
+                    $scope.menuCatSel = i;
+                    break;
+                }
+            }
+        } else {
+            $scope.selectedCat = $scope.data.works[0];
+            $scope.menuCatSel = 0;
+        }
+        // console.log($scope.selectedCat.name);
 
         $scope.mainSlickConfig = {
             arrows: false,
@@ -61,9 +64,27 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
             speed: 800,
             autoplaySpeed: 2400
         };
+
+        $scope.slickLoaded = true;
         $scope.gallerySlickConfig = {
-            initialSlide: $scope.selectedImg
-        };
+            event: {
+                init: function(event, slick) {
+                   /* $scope.slickLoaded = false;
+                    $timeout(function() {
+                        $scope.slickLoaded = true;
+                    }, 5);*/
+                    slick.slickGoTo($scope.selectedImg); // slide to correct index when init
+                },
+                /*afterChange: function(event, slick, currentSlide) {
+                    console.log(currentSlide);
+
+                },*/
+                beforeChange: function(event, slick, currentSlide, nextSlide) {
+                    $scope.selectedImg = nextSlide; // save current index each time
+                    $location.search({ category: $scope.selectedCat.name, object: nextSlide });
+                }
+            }
+        }
     });
 
     $scope.selectCat = function(cat) {
@@ -71,13 +92,15 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
         $scope.menuCatSel = cat;
         $location.search({ category: $scope.selectedCat.name });
 
+    }
 
-    };
-    $scope.selectImg = function(image) {
-        $scope.selectedImg = image;
-        $location.search({ object: image });
-        console.log(Number($scope.selectedImg) + 1);
-    };
+
+    $scope.selectImg = function(index) {
+        $scope.selectedImg = index;
+        $location.search({ category: $scope.selectedCat.name, object: index });
+    }
+
+
     // ————————————————
     // DOORS
 
@@ -94,11 +117,11 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
         $scope.selectedModel = index;
         $location.search({ model: $scope.selectedModel });
         $scope.selectVariant(0);
-    };
+    }
 
     $scope.selectVariant = function(index) {
         $scope.selectedVariant = index + 1;
-    };
+    }
 
     $scope.setPrevNextModels = function(index) {
         let i = index;
