@@ -67,21 +67,11 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
 
         $scope.slickLoaded = true;
         $scope.gallerySlickConfig = {
+
             event: {
                 init: function(event, slick) {
-                   /* $scope.slickLoaded = false;
-                    $timeout(function() {
-                        $scope.slickLoaded = true;
-                    }, 5);*/
                     slick.slickGoTo($scope.selectedImg); // slide to correct index when init
-                },
-                /*afterChange: function(event, slick, currentSlide) {
-                    console.log(currentSlide);
 
-                },*/
-                beforeChange: function(event, slick, currentSlide, nextSlide) {
-                    $scope.selectedImg = nextSlide; // save current index each time
-                    $location.search({ category: $scope.selectedCat.name, object: nextSlide });
                 }
             }
         }
@@ -90,6 +80,12 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
     $scope.selectCat = function(cat) {
         $scope.selectedCat = $scope.data.works[cat];
         $scope.menuCatSel = cat;
+        $scope.slickLoaded = false;
+        $timeout(function() {
+            $scope.slickLoaded = true;
+        }, 5);
+        $scope.selectedImg = 0;
+
         $location.search({ category: $scope.selectedCat.name });
 
     }
