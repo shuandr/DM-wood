@@ -46,21 +46,14 @@
      <h1 class="white uppercase text-center">наші роботи</h1>
      <div data-sticky-container>
          <div class="sticky" data-sticky data-sticky-on="small" data-options="marginTop:0;" data-top-anchor="ourWorks" data-btm-anchor="ourWorks:bottom">
-             <div class="works-cat show-for-medium grid-x medium-up-4 large-up-6 xlarge-up-8 align-center">
+             <div class="works-cat grid-x small-up-4 large-up-8 align-center">
                  <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
                      <a>
                          <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
                      </a>
                  </div>
              </div>
-             <div class="hide-for-medium grid-x grid-padding-x align-center">
-                         <h6 class="s-bold text-center white">виберіть категорію:</h6>
-                 <div class="cell small-10 s-bold ">
-                     <select class="dm-select" ng-model="selectedCat" ng-options="cat.name for cat in data.works" style="margin-top: 0;">
-                               <!-- <option label="— виберіть категорію —" value=""  selected="selected"></option> -->
-                     </select>
-                 </div>
-             </div>  
+             
          </div>
      </div><br>    <div class="grid-x grid-padding-x align-center">
          <div class=" large-10 cell text-center">
