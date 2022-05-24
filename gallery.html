@@ -9,11 +9,13 @@
              </div>
          </div>
          <div class="hide-for-medium grid-x grid-padding-x align-center">
+                     <h6 class="s-bold text-center white">виберіть категорію:</h6>
              <div class="cell small-10 s-bold ">
-                 <select class="dm-select " ng-model="selectedCat" ng-options="cat.name for cat in data.works">
+                 <select class="dm-select" ng-model="selectedCat" ng-options="cat.name for cat in data.works" style="margin-top: 0;">
+                           <!-- <option label="— виберіть категорію —" value=""  selected="selected"></option> -->
                  </select>
              </div>
-         </div>
+         </div>  
      </div>
  </div><br><br>
  <div class="grid-container">

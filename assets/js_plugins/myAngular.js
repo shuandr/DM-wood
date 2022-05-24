@@ -67,11 +67,16 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
 
         $scope.slickLoaded = true;
         $scope.gallerySlickConfig = {
-
+              dots: true,
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    arrows: false
+                }
+            }],
             event: {
                 init: function(event, slick) {
                     slick.slickGoTo($scope.selectedImg); // slide to correct index when init
-
                 }
             }
         }
@@ -83,7 +88,7 @@ app.controller('DMwoodCtrl', function($scope, $http, $route, $routeParams, $loca
         $scope.slickLoaded = false;
         $timeout(function() {
             $scope.slickLoaded = true;
-        }, 5);
+        }, 20);
         $scope.selectedImg = 0;
 
         $location.search({ category: $scope.selectedCat.name });
