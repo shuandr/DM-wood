@@ -1,35 +1,38 @@
 <!-- ng-view -->
- <div data-sticky-container>
-     <div class="sticky" data-sticky data-sticky-on="small" data-options="marginTop:0;" data-top-anchor="ourWorks" data-btm-anchor="ourWorks:bottom">
-         <div class="works-cat grid-x small-up-4 large-up-8 align-center">
-             <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
-                 <a>
-                     <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
-                 </a>
-             </div>
-         </div>
-         
-     </div>
- </div><br><br>
- <div class="grid-container">
-     <div class="grid-x grid-padding-x  text-center">
-         <div class="cell">
-             <br>
-             <p class="white ">{[{selectedCat.descr}]}</p>
-             <a ng-show="selectedCat.id == 'doors'" href="#/dmdoors" class="button door-cat-btn">
-                 <span class="uppercase s-bold">каталог дверей</span>
-             </a><br>
-             <slick settings="gallerySlickConfig" ng-if="slickLoaded">
-                 <div ng-repeat="image in selectedCat.img ">
-                     <div class="grid-x align-center-middle">
-                         <div class="cell large-shrink">
-                             <img src="assets/img/{[{selectedCat.id}]}/{[{image}]}.webp" 
-                              alt="">
-                         </div>
-                     </div>
-                 </div>
-             </slick><br>
-             <a href="#/main#ourWorks" class="hollow button back-btn uppercase"><i class="fas fa-arrow-left "></i> повернутись</a>
-         </div>
-     </div>
- </div>
+<div data-sticky-container>
+    <div class="sticky" data-sticky data-sticky-on="small" data-options="marginTop:0;" data-top-anchor="ourWorks" data-btm-anchor="ourWorks:bottom">
+        <div class="works-cat grid-x small-up-4 large-up-8 align-center">
+            <div class=" cell " ng-repeat="cat in data.works" ng-click="selectCat($index)" ng-class="{menuCatSel: $index == menuCatSel}">
+                <a>
+                    <h6 class=" s-bold uppercase text-center">{[{cat.name}]} </h6>
+                </a>
+            </div>
+        </div>
+    </div>
+</div><br><br>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x  text-center">
+        <div class="cell">
+            <br>
+            <p class="white ">{[{selectedCat.descr}]}</p>
+            <a ng-show="selectedCat.id == 'doors'" href="#/dmdoors" class="button door-cat-btn">
+                <span class="uppercase s-bold">каталог дверей</span>
+            </a><br>
+            <slick settings="gallerySlickConfig" ng-if="slickLoaded">
+                <div ng-repeat="image in selectedCat.img ">
+                    <div class="grid-x align-center-middle">
+                        <div class="cell large-shrink">
+                            <img src="assets/img/{[{selectedCat.id}]}/{[{image}]}.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+            </slick><br>
+            <style>
+            .slick-slider {
+                touch-action: auto !important;
+            }
+            </style>
+            <a href="#/main#ourWorks" class="hollow button back-btn uppercase"><i class="fas fa-arrow-left "></i> повернутись</a>
+        </div>
+    </div>
+</div>
